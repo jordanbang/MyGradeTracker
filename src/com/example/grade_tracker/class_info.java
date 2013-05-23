@@ -122,7 +122,7 @@ public class class_info extends BaseActivity {
 		switch(item.getItemId())
 		{
 			case android.R.id.home:
-				zFrmShowClear(Grade_tracker.class);
+				zFrmShowClear(GradeTrackerMainActivity.class);
 				return true;
 			case R.id_menu_class.menu_edit:
 				editAssignment();

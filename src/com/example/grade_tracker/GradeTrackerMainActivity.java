@@ -22,7 +22,7 @@ import big.bang.grade_tracker.R;
 import com.example.grade_tracker.BaseActivity;
 import com.example.grade_tracker.BaseRout;
 
-public class Grade_tracker extends BaseActivity {
+public class GradeTrackerMainActivity extends BaseActivity {
 	private ClassDataSource datasource;
 	int DeleteAllClass = 1;
 		
@@ -54,8 +54,6 @@ public class Grade_tracker extends BaseActivity {
 		
 		});
 	}
-
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
