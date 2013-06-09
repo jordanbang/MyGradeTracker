@@ -4,14 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import big.bang.grade_tracker.R;
-import big.bang.grade_tracker.R.id;
-import big.bang.grade_tracker.R.id_class_info;
-import big.bang.grade_tracker.R.id_menu_class;
-import big.bang.grade_tracker.R.layout;
-import big.bang.grade_tracker.R.menu;
-
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ContextMenu;
