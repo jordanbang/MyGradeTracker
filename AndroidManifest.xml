@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.grade_tracker.GradeTrackerMainActivity"
+            android:name="com.jordanbang.gradetracker.activity.GradeTrackerMainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
         
        <activity
-            android:name="com.example.grade_tracker.class_info"
+            android:name="com.jordanbang.gradetracker.class_info"
             android:label="" />
     </application>
 

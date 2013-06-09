@@ -1,10 +1,12 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker.activity;
 
 import java.util.List;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,40 +18,30 @@ import android.widget.EditText;
 import android.widget.TextView;
 import big.bang.grade_tracker.R;
 
-import com.example.grade_tracker.BaseActivity;
-import com.example.grade_tracker.BaseRout;
+import com.jordanbang.gradetracker.BaseActivity;
+import com.jordanbang.gradetracker.BaseRout;
+import com.jordanbang.gradetracker.ClassDataSource;
+import com.jordanbang.gradetracker.class_database;
+import com.jordanbang.gradetracker.class_info;
+import com.jordanbang.gradetracker.fragments.ClassListFragment;
+import com.jordanbang.gradetracker.utility.PreferenceManagerUtility;
 
-public class GradeTrackerMainActivity extends BaseActivity {
+public class GradeTrackerMainActivity extends FragmentActivity {
 	private ClassDataSource datasource;
 	int DeleteAllClass = 1;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_grade_tracker);
-		BaseRout.Init(this, "grade_tracker");
+		setContentView(R.layout.activity_classlist);
 		
-		datasource = new ClassDataSource(this);
-		datasource.open();
-		List<class_database> values = datasource.getAllClasses();
-		
-		if (values.size()==0){
-			getClassName("Add Your First Class", "To get started, add your first class:");
+		if (savedInstanceState == null){
+			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+			trans.add(R.id.fragment_container, new ClassListFragment());
+			trans.commit();
 		}
-		ArrayAdapter<class_database> adapter = new ArrayAdapter<class_database>(this, R.layout.class_list_view, values);
-		this.zListViewfId(R.id_main.listView).setAdapter(adapter);
-		this.zListViewfId(R.id_main.listView).setOnItemClickListener(new OnItemClickListener(){
-
-			@Override
-			public void onItemClick(AdapterView<?> adapter, View view, int arg2,
-					long arg3) {
-				
-				Globals.selected_class = (String) ((TextView) view).getText();
-				zFrmShow(class_info.class);
-			}
-			
 		
-		});
+		PreferenceManagerUtility.Init(this, "MyGradeTracker");
 	}
 
 	@Override

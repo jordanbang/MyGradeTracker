@@ -1,7 +1,9 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.jordanbang.gradetracker.models.Assignment;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,7 +27,7 @@ public class AssignDataSource {
 		dbHelper.close();
 	}
 	
-	public assign createAssignment(String AssignName, String ClassName, double mark, double worth){
+	public Assignment createAssignment(String AssignName, String ClassName, double mark, double worth){
 		ContentValues values = new ContentValues();
 		values.put(AssignSQLiteHelper.CLM_ASSIGNNAME, AssignName);
 		values.put(AssignSQLiteHelper.CLM_CLASSNAME, ClassName);
@@ -34,23 +36,23 @@ public class AssignDataSource {
 		long insertId = database.insert(AssignSQLiteHelper.TABLE_ASSIGN, null, values);
 		Cursor cursor = database.query(AssignSQLiteHelper.TABLE_ASSIGN, null, AssignSQLiteHelper.CLM_ID + " = " + insertId, null, null, null, null);
 		cursor.moveToFirst();
-		assign newAssign = cursorToAssign(cursor);
+		Assignment newAssign = cursorToAssign(cursor);
 		cursor.close();
 		
 		return newAssign;
 	}
 	
-	public void deleteAssign(assign assignment){
+	public void deleteAssign(Assignment assignment){
 		long id = assignment.getId();
 		database.delete(AssignSQLiteHelper.TABLE_ASSIGN, AssignSQLiteHelper.CLM_ID + " = " + id, null);
 	}
 	
-	public void editAssign(String AssignName, String ClassName, double mark, double worth, assign assignment){
+	public void editAssign(String AssignName, String ClassName, double mark, double worth, Assignment assignment){
 		
 	}
 	
-	private assign cursorToAssign(Cursor cursor){
-		assign assignment = new assign();
+	private Assignment cursorToAssign(Cursor cursor){
+		Assignment assignment = new Assignment();
 		assignment.setId(cursor.getLong(0));
 		assignment.setAssignName(cursor.getString(1));
 		assignment.setClassName(cursor.getString(2));
@@ -60,13 +62,13 @@ public class AssignDataSource {
 		return assignment;
 	}
 	
-	public List<assign> getAllAsignmentsforClass(String classname){
-		List<assign> assigns = new ArrayList<assign>();
+	public List<Assignment> getAllAsignmentsforClass(String classname){
+		List<Assignment> assigns = new ArrayList<Assignment>();
 		Cursor cursor = null;
 		cursor = database.query(AssignSQLiteHelper.TABLE_ASSIGN, null, AssignSQLiteHelper.CLM_CLASSNAME + " = '" +classname +"'", null, null, null, null);
 		cursor.moveToFirst();
 		while(!cursor.isAfterLast()){
-			assign assignment = cursorToAssign(cursor);
+			Assignment assignment = cursorToAssign(cursor);
 			assigns.add(assignment);
 			cursor.moveToNext();
 		}

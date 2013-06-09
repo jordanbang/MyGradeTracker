@@ -1,4 +1,4 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker;
 
 public class class_database{
 	private long id;

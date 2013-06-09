@@ -1,6 +1,8 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker;
 
 import java.util.ArrayList;
+
+import com.jordanbang.gradetracker.models.Assignment;
 
 import big.bang.grade_tracker.R;
 
@@ -58,7 +60,7 @@ public class AssignListAdapter extends BaseAdapter {
 		}
 		v.setTag(position);
 		
-		assign assignment = (assign) data.get(position);
+		Assignment assignment = (Assignment) data.get(position);
 		((TextView)v.findViewById(R.id_assign_list.assign_name)).setText(assignment.getAssignName());
 		((TextView)v.findViewById(R.id_assign_list.assign_mark)).setText(String.format("%.2f", assignment.getMark())+"%");
 		((TextView)v.findViewById(R.id_assign_list.assign_worth)).setText(String.format("%.2f", assignment.getWorth())+"%");

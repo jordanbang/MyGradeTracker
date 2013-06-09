@@ -1,4 +1,4 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker;
 
 
 
@@ -55,7 +55,7 @@ public class BaseActivity extends Activity
 	int hi;
 	
 	public static class Globals{
-		static String selected_class;
+		public static String selected_class;
 	}
 	
     @Override

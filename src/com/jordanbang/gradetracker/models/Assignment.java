@@ -1,6 +1,6 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker.models;
 
-public class assign {
+public class Assignment {
 	private long id;
 	private String assignment_name;
 	private String class_name;

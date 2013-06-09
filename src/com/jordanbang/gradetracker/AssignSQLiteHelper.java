@@ -1,4 +1,4 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

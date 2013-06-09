@@ -1,7 +1,10 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.jordanbang.gradetracker.activity.GradeTrackerMainActivity;
+import com.jordanbang.gradetracker.models.Assignment;
 
 import big.bang.grade_tracker.R;
 import android.app.AlertDialog;
@@ -22,8 +25,8 @@ public class class_info extends BaseActivity {
 	private AssignDataSource datasource;
 	String classname;
 	int editflag = 1;
-	assign itemtodelete;
-	List<assign> values;
+	Assignment itemtodelete;
+	List<Assignment> values;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class class_info extends BaseActivity {
 		else{
 			getCurrentAvg();
 		}
-		zListViewfId(R.id_class_info.listView1).setAdapter(new AssignListAdapter((ArrayList<assign>) values, this));
+		zListViewfId(R.id_class_info.listView1).setAdapter(new AssignListAdapter((ArrayList<Assignment>) values, this));
 		registerForContextMenu(zListViewfId(R.id_class_info.listView1));
 		
 		
@@ -241,7 +244,7 @@ public class class_info extends BaseActivity {
 		AssignListAdapter adp = (AssignListAdapter) this.zListViewfId(R.id_class_info.listView1).getAdapter();
 		adp.clearAll();
 		values = datasource.getAllAsignmentsforClass(classname);
-		adp.addAll((ArrayList<assign>) values);
+		adp.addAll((ArrayList<Assignment>) values);
 		adp.notifyDataSetChanged();
 		getCurrentAvg();
 	}

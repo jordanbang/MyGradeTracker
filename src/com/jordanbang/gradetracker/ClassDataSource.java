@@ -1,4 +1,4 @@
-package com.example.grade_tracker;
+package com.jordanbang.gradetracker;
 
 import java.util.ArrayList;
 import java.util.List;
