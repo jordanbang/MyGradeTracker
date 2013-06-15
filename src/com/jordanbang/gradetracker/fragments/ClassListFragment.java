@@ -46,4 +46,22 @@ public class ClassListFragment extends Fragment {
 		
 		return v;
 	}
+
+	@SuppressWarnings("unchecked")
+	public void deleteAllClasses() {
+		mDataSource.deleteAllClass();
+		ArrayAdapter<class_database> adapter = (ArrayAdapter<class_database>) mListView.getAdapter();
+		adapter.clear();
+		adapter.notifyDataSetChanged();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void createclass(String name){
+		ArrayAdapter<class_database> adapter = (ArrayAdapter<class_database>) mListView.getAdapter();
+		mDataSource.createClass(name);
+		adapter.clear();
+		List<class_database> values = mDataSource.getAllClasses();
+		adapter.addAll(values);
+		adapter.notifyDataSetChanged();
+	}
 }

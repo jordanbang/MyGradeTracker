@@ -3,7 +3,9 @@ package com.jordanbang.gradetracker.activity;
 import java.util.List;
 
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -29,6 +31,7 @@ import com.jordanbang.gradetracker.utility.PreferenceManagerUtility;
 public class GradeTrackerMainActivity extends FragmentActivity {
 	private ClassDataSource datasource;
 	int DeleteAllClass = 1;
+	private ClassListFragment mFragment;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,8 @@ public class GradeTrackerMainActivity extends FragmentActivity {
 		
 		if (savedInstanceState == null){
 			FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-			trans.add(R.id.fragment_container, new ClassListFragment());
+			mFragment = new ClassListFragment();
+			trans.add(R.id.fragment_container, mFragment);
 			trans.commit();
 		}
 		
@@ -60,18 +64,25 @@ public class GradeTrackerMainActivity extends FragmentActivity {
 			getClassName("Add a Class", "Enter the name of the class:");
 			break;
 		case R.id_menu.menu_deleteallclass:
-			MessageBox(DeleteAllClass, "Delete All Classes", "Are you sure you want to delete all your classes?", true, true);
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			alert.setTitle("Delete All Classes");
+			alert.setMessage("Are you sure you want to delete all classes?");
+			alert.setPositiveButton("Ok", new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					mFragment.deleteAllClasses();
+				}
+			});
+			alert.setNegativeButton("Cancel", new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					return;
+				}
+			});
+			alert.show();
 			break;
 		}
 		return true;
-	}
-	
-	public void OnClickOK(int mesgNum, DialogInterface dialog, int which) 
-	{
-		datasource.deleteAllClass();
-		ArrayAdapter<class_database> adapter = (ArrayAdapter<class_database>) this.zListViewfId(R.id_main.listView).getAdapter();
-		adapter.clear();
-		adapter.notifyDataSetChanged();
 	}
 	
 	public void OnClickCancel(int mesgNum, DialogInterface dialog, int which){
@@ -90,7 +101,7 @@ public class GradeTrackerMainActivity extends FragmentActivity {
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
 				String value = input.getText().toString();
-				createclass(value);
+				mFragment.createclass(value);
 				return;
 			}
 		});
@@ -105,15 +116,5 @@ public class GradeTrackerMainActivity extends FragmentActivity {
 		});
 		
 		alert.show();
-	}
-	
-	public void createclass(String name){
-		
-		ArrayAdapter<class_database> adapter = (ArrayAdapter<class_database>) this.zListViewfId(R.id_main.listView).getAdapter();
-		class_database classes = datasource.createClass(name);
-		adapter.clear();
-		List<class_database> values = datasource.getAllClasses();
-		adapter.addAll(values);
-		adapter.notifyDataSetChanged();
 	}
 }
