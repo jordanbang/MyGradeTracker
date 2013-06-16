@@ -18,13 +18,14 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
-import big.bang.grade_tracker.R;
 
 import com.jordanbang.gradetracker.BaseActivity;
 import com.jordanbang.gradetracker.BaseRout;
 import com.jordanbang.gradetracker.ClassDataSource;
+import com.jordanbang.gradetracker.R;
 import com.jordanbang.gradetracker.class_database;
 import com.jordanbang.gradetracker.class_info;
+import com.jordanbang.gradetracker.fragments.ClassDetailsFragment;
 import com.jordanbang.gradetracker.fragments.ClassListFragment;
 import com.jordanbang.gradetracker.utility.PreferenceManagerUtility;
 
@@ -95,9 +96,7 @@ public class GradeTrackerMainActivity extends FragmentActivity {
 		alert.setMessage(msg);
 		final EditText input = new EditText(this);
 		alert.setView(input);
-		
 		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-			
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
 				String value = input.getText().toString();
@@ -105,16 +104,20 @@ public class GradeTrackerMainActivity extends FragmentActivity {
 				return;
 			}
 		});
-		
 		alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-			
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
-				// TODO Auto-generated method stub
 				return;
 			}
 		});
-		
 		alert.show();
+	}
+	
+	public void showClassDetails(int classId){
+		FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+		ClassDetailsFragment fragment = new ClassDetailsFragment();
+		trans.replace(R.id.fragment_container, fragment);
+		trans.addToBackStack(null);
+		trans.commit();
 	}
 }

@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package big.bang.grade_tracker;
+package com.jordanbang.gradetracker;
 
 public final class R {
     public static final class attr {
@@ -17,25 +17,25 @@ public final class R {
         public static final int plus=0x7f020003;
     }
     public static final class id {
-        public static final int classlist=0x7f080004;
-        public static final int fragment_container=0x7f080000;
-        public static final int mark=0x7f080003;
-        public static final int name=0x7f080001;
-        public static final int worth=0x7f080002;
-    }
-    public static final class id_assign_list {
-        public static final int assign_mark=0x7f090002;
-        public static final int assign_name=0x7f090000;
-        public static final int assign_worth=0x7f090001;
-    }
-    public static final class id_class_info {
-        public static final int assign=0x7f070001;
-        public static final int average=0x7f070006;
-        public static final int lin_layout=0x7f070000;
+        public static final int average=0x7f070005;
+        public static final int classlist=0x7f070006;
+        public static final int fragment_container=0x7f070000;
         public static final int listView1=0x7f070004;
         public static final int mark=0x7f070003;
-        public static final int textView1=0x7f070005;
+        public static final int name=0x7f070001;
         public static final int worth=0x7f070002;
+    }
+    public static final class id_assign_list {
+        public static final int assign_mark=0x7f080002;
+        public static final int assign_name=0x7f080000;
+        public static final int assign_worth=0x7f080001;
+    }
+    public static final class id_class_info {
+        public static final int assign=0x7f090001;
+        public static final int lin_layout=0x7f090000;
+        public static final int mark=0x7f090003;
+        public static final int textView1=0x7f090004;
+        public static final int worth=0x7f090002;
     }
     public static final class id_menu {
         public static final int menu_add=0x7f0b0000;
@@ -46,11 +46,11 @@ public final class R {
         public static final int quick_add=0x7f0a0001;
     }
     public static final class layout {
-        public static final int activity_class_info=0x7f030000;
-        public static final int activity_classlist=0x7f030001;
-        public static final int assign_entry=0x7f030002;
-        public static final int assign_list_view=0x7f030003;
-        public static final int class_list_view=0x7f030004;
+        public static final int activity_classlist=0x7f030000;
+        public static final int assign_entry=0x7f030001;
+        public static final int assign_list_view=0x7f030002;
+        public static final int class_list_view=0x7f030003;
+        public static final int fragment_classdetails=0x7f030004;
         public static final int fragment_classlist=0x7f030005;
     }
     public static final class menu {

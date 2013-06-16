@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import com.jordanbang.gradetracker.models.Assignment;
 
-import big.bang.grade_tracker.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +15,7 @@ public class AssignListAdapter extends BaseAdapter {
 	private ArrayList data;
 	Context context;
 	
-	AssignListAdapter(ArrayList data_n, Context c){
+	public AssignListAdapter(ArrayList data_n, Context c){
 		data = data_n;
 		context = c;
 	}

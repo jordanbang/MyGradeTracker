@@ -5,7 +5,6 @@ package com.jordanbang.gradetracker;
 import java.util.List;
 import java.util.Map;
 
-import big.bang.grade_tracker.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

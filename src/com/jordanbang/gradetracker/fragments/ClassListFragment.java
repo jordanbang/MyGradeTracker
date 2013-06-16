@@ -3,11 +3,11 @@ package com.jordanbang.gradetracker.fragments;
 import java.util.List;
 
 import com.jordanbang.gradetracker.ClassDataSource;
+import com.jordanbang.gradetracker.R;
 import com.jordanbang.gradetracker.class_database;
 import com.jordanbang.gradetracker.BaseActivity.Globals;
 import com.jordanbang.gradetracker.activity.GradeTrackerMainActivity;
 
-import big.bang.grade_tracker.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

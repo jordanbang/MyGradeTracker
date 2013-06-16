@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package big.bang.grade_tracker;
+package com.jordanbang.gradetracker;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

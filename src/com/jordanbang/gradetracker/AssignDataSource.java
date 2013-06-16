@@ -27,10 +27,10 @@ public class AssignDataSource {
 		dbHelper.close();
 	}
 	
-	public Assignment createAssignment(String AssignName, String ClassName, double mark, double worth){
+	public Assignment createAssignment(String AssignName, int classId, double mark, double worth){
 		ContentValues values = new ContentValues();
 		values.put(AssignSQLiteHelper.CLM_ASSIGNNAME, AssignName);
-		values.put(AssignSQLiteHelper.CLM_CLASSNAME, ClassName);
+		values.put(AssignSQLiteHelper.CLM_CLASSNAME, classId);
 		values.put(AssignSQLiteHelper.CLM_MARK, mark);
 		values.put(AssignSQLiteHelper.CLM_WORTH, worth);
 		long insertId = database.insert(AssignSQLiteHelper.TABLE_ASSIGN, null, values);
@@ -62,10 +62,10 @@ public class AssignDataSource {
 		return assignment;
 	}
 	
-	public List<Assignment> getAllAsignmentsforClass(String classname){
+	public List<Assignment> getAllAsignmentsforClass(int classId){
 		List<Assignment> assigns = new ArrayList<Assignment>();
 		Cursor cursor = null;
-		cursor = database.query(AssignSQLiteHelper.TABLE_ASSIGN, null, AssignSQLiteHelper.CLM_CLASSNAME + " = '" +classname +"'", null, null, null, null);
+		cursor = database.query(AssignSQLiteHelper.TABLE_ASSIGN, null, AssignSQLiteHelper.CLM_CLASSNAME + " = '" +classId +"'", null, null, null, null);
 		cursor.moveToFirst();
 		while(!cursor.isAfterLast()){
 			Assignment assignment = cursorToAssign(cursor);
