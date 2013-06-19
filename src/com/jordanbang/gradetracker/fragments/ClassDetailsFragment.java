@@ -3,9 +3,9 @@ package com.jordanbang.gradetracker.fragments;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jordanbang.gradetracker.AssignDataSource;
-import com.jordanbang.gradetracker.AssignListAdapter;
 import com.jordanbang.gradetracker.R;
+import com.jordanbang.gradetracker.adapters.AssignListAdapter;
+import com.jordanbang.gradetracker.datasources.AssignDataSource;
 import com.jordanbang.gradetracker.models.Assignment;
 
 import android.app.AlertDialog;

@@ -1,7 +1,10 @@
-package com.jordanbang.gradetracker;
+package com.jordanbang.gradetracker.adapters;
 
 import java.util.ArrayList;
 
+import com.jordanbang.gradetracker.R;
+import com.jordanbang.gradetracker.R.id_assign_list;
+import com.jordanbang.gradetracker.R.layout;
 import com.jordanbang.gradetracker.models.Assignment;
 
 import android.content.Context;

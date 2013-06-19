@@ -21,12 +21,12 @@ import android.widget.TextView;
 
 import com.jordanbang.gradetracker.BaseActivity;
 import com.jordanbang.gradetracker.BaseRout;
-import com.jordanbang.gradetracker.ClassDataSource;
 import com.jordanbang.gradetracker.R;
-import com.jordanbang.gradetracker.class_database;
 import com.jordanbang.gradetracker.class_info;
+import com.jordanbang.gradetracker.datasources.ClassDataSource;
 import com.jordanbang.gradetracker.fragments.ClassDetailsFragment;
 import com.jordanbang.gradetracker.fragments.ClassListFragment;
+import com.jordanbang.gradetracker.models.Class;
 import com.jordanbang.gradetracker.utility.PreferenceManagerUtility;
 
 public class GradeTrackerMainActivity extends FragmentActivity {

@@ -1,19 +1,20 @@
-package com.jordanbang.gradetracker;
+package com.jordanbang.gradetracker.helpers;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class ClassesSQLiteHelper extends SQLiteOpenHelper {
-	private static final String DATABASE_NAME = "gradetracker_classes.db";
-	private static final int DATABASE_VERSION = 1;
+public class ClassSQLiteHelper extends SQLiteOpenHelper {
+	private static final String DATABASE_NAME = "gradetrackerclasses.db";
+	private static final int DATABASE_VERSION = 2;
 	public static final String TABLE_CLASSES = "class_name";
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_CLASSNAME = "classname";
 	
-	String CLASS_DATABASE_CREATE = "create table class_name(_id integer primary key autoincrement, classname text not null);";
+	String CLASS_DATABASE_CREATE = "create table class_name(" + COLUMN_ID + 
+			" integer primary key autoincrement, " + COLUMN_CLASSNAME + " text not null);";
 	
-	public ClassesSQLiteHelper(Context c){
+	public ClassSQLiteHelper(Context c){
 		super (c, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 	
@@ -24,7 +25,6 @@ public class ClassesSQLiteHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
 		
 	}
 }
