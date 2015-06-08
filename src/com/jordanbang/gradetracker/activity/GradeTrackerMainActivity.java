@@ -1,9 +1,6 @@
 package com.jordanbang.gradetracker.activity;
 
-import java.util.List;
-
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
@@ -12,25 +9,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import com.jordanbang.gradetracker.BaseActivity;
-import com.jordanbang.gradetracker.BaseRout;
 import com.jordanbang.gradetracker.R;
-import com.jordanbang.gradetracker.class_info;
-import com.jordanbang.gradetracker.datasources.ClassDataSource;
 import com.jordanbang.gradetracker.fragments.ClassDetailsFragment;
 import com.jordanbang.gradetracker.fragments.ClassListFragment;
-import com.jordanbang.gradetracker.models.Class;
 import com.jordanbang.gradetracker.utility.PreferenceManagerUtility;
 
 public class GradeTrackerMainActivity extends FragmentActivity {
-	private ClassDataSource datasource;
 	int DeleteAllClass = 1;
 	private ClassListFragment mFragment;
 		

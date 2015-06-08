@@ -3,8 +3,6 @@ package com.jordanbang.gradetracker.adapters;
 import java.util.ArrayList;
 
 import com.jordanbang.gradetracker.R;
-import com.jordanbang.gradetracker.R.id_assign_list;
-import com.jordanbang.gradetracker.R.layout;
 import com.jordanbang.gradetracker.models.Assignment;
 
 import android.content.Context;
@@ -15,10 +13,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class AssignListAdapter extends BaseAdapter {
-	private ArrayList data;
+	private ArrayList<?> data;
 	Context context;
 	
-	public AssignListAdapter(ArrayList data_n, Context c){
+	public AssignListAdapter(ArrayList<?> data_n, Context c){
 		data = data_n;
 		context = c;
 	}
@@ -46,7 +44,7 @@ public class AssignListAdapter extends BaseAdapter {
 			data.clear();
 	}
 	
-	public void addAll(ArrayList values){
+	public void addAll(ArrayList<?> values){
 		data = values;
 	}
 
